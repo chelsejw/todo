@@ -12,6 +12,7 @@ todo_frontend/coverage
 todo_frontend/build
 
 # misc
+.DS_Store
 todo_frontend/.DS_Store
 todo_frontend/.env.local
 todo_frontend/.env.development.local
