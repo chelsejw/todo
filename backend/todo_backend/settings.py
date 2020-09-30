@@ -27,6 +27,7 @@ DEBUG = True
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 ALLOWED_HOSTS = env("DJANGO_ALLOWED_HOSTS").split(" ")
 CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST").split(" ")
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -84,7 +85,6 @@ DATABASES = {
     }
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

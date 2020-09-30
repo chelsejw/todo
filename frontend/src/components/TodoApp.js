@@ -7,6 +7,9 @@ import Footer from './Footer'
 // import Utils from '../Utils'
 
 const TodoApp = () => {
+    const API_URL = `http://${process.env.REACT_APP_HOST_IP_ADDRESS}/api/items`
+    console.log(`API URL is ${API_URL}`);
+
 	const ALL_TODOS = "all";
     const ACTIVE_TODOS = "active";
     const COMPLETED_TODOS = "completed";
@@ -37,7 +40,7 @@ const TodoApp = () => {
         router.init();
 
         axios
-        .get('http://localhost:8000/api/items')
+        .get(API_URL)
         .then(res => {
             console.log(res.data);
             setTodos(res.data);
@@ -51,7 +54,7 @@ const TodoApp = () => {
 
     const postToApi = (todoContent) => {
         axios
-          .post("http://localhost:8000/api/items/", {
+          .post(API_URL, {
             title: todoContent,
           })
           .then((res) => {
@@ -80,9 +83,10 @@ const TodoApp = () => {
     }
 
     const deleteItemApi = (itemId) => {
-        axios.delete(`http://localhost:8000/api/items/${itemId}/`)
-        .then(res => res)
-        .catch(err => console.log(err.response.data));
+        axios
+          .delete(`${API_URL}/${itemId}/`)
+          .then((res) => res)
+          .catch((err) => console.log(err.response.data));
     }
 
     const toggleAll = (event) => { // Make all todos complete. If all already complete, make all incomplete.
@@ -93,14 +97,14 @@ const TodoApp = () => {
                 return item;
             });
             newItems.forEach( item => {
-                axios.patch(
-                  `http://localhost:8000/api/items/${item.id}/`,
-                  item
-                ).then(res => {
-                    return res
-                }).catch(err => {
-                    console.log(err.response)
-                })
+                axios
+                  .patch(`${API_URL}/${item.id}/`, item)
+                  .then((res) => {
+                    return res;
+                  })
+                  .catch((err) => {
+                    console.log(err.response);
+                  });
             })
             return newItems;
         })
@@ -109,21 +113,22 @@ const TodoApp = () => {
 
     const toggle = (todoToToggle) => {
         const status = todoToToggle.completed;
-        axios.patch(`http://localhost:8000/api/items/${todoToToggle.id}/`, {
-          ...todoToToggle,
-          completed: !status,
-        })
-        .then(res => {
-            setTodos(prev => {
-                return prev.map(item => {
-                    if (item.id===todoToToggle.id) {
-                        return res.data;
-                    }
-                    return item;
-                })
-            })
-        })
-        .catch(err => console.log(err.response));
+        axios
+          .patch(`${API_URL}/${todoToToggle.id}/`, {
+            ...todoToToggle,
+            completed: !status,
+          })
+          .then((res) => {
+            setTodos((prev) => {
+              return prev.map((item) => {
+                if (item.id === todoToToggle.id) {
+                  return res.data;
+                }
+                return item;
+              });
+            });
+          })
+          .catch((err) => console.log(err.response));
 
     }
 
@@ -141,7 +146,7 @@ const TodoApp = () => {
 
 
     const saveItemApi = (todo, text) => {
-        axios.patch(`http://localhost:8000/api/items/${todo.id}/`, {...todo, title: text})
+        axios.patch(`${API_URL}/${todo.id}/`, {...todo, title: text})
         .then(res => {
             setTodos(prev => {
                 return prev.map(item => {
@@ -238,7 +243,7 @@ const TodoApp = () => {
     return (
       <div className='todoapp'>
         <header className="header">
-          <h1>todos</h1>
+          <h1>todos 4</h1>
           <input
             className="new-todo"
             placeholder="What needs to be done?"
