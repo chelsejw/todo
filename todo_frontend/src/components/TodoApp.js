@@ -86,10 +86,16 @@ const TodoApp = () => {
         .catch(err => console.log(err.response.data));
     }
 
-    const toggleAll = (event) => {
+    const toggleAll = (event) => { // Make all todos complete. If all already complete, make all incomplete.
         const checked = event.target.checked;
         console.log(checked)
-        // this.props.model.toggleAll(checked);
+        setTodos(prev => {
+            return prev.map(item => {
+                item.completed = checked;
+                return item;
+            })
+        })
+        
     }
 
     const toggle = (todoToToggle) => {
