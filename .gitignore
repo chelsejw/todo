@@ -22,3 +22,4 @@ todo_frontend/.env.production.local
 todo_frontend/npm-debug.log*
 todo_frontend/yarn-debug.log*
 todo_frontend/yarn-error.log*
+docker-compose.yml
