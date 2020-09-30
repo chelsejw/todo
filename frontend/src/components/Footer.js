@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Utils from '../Utils';
+import Utils from '../utils';
 
 
 const Footer = (props) => {

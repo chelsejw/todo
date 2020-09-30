@@ -1,25 +1,27 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-todo_frontend/node_modules
-todo_frontend/.pnp
-todo_frontend/.pnp.js
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
 
 # testing
-todo_frontend/coverage
+frontend/coverage
 
 # production
-todo_frontend/build
+frontend/build
 
 # misc
 .DS_Store
-todo_frontend/.DS_Store
-todo_frontend/.env.local
+frontend/.DS_Store
+frontend/.env.local
 todo_frontend/.env.development.local
-todo_frontend/.env.test.local
-todo_frontend/.env.production.local
+frontend/.env.test.local
+frontend/.env.production.local
 
-todo_frontend/npm-debug.log*
-todo_frontend/yarn-debug.log*
-todo_frontend/yarn-error.log*
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
 docker-compose.yml
+
+backend/todo_backend/.env

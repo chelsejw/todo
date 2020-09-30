@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Router } from "director/build/director.js";
+import { Router } from "director/build/director";
 import axios from 'axios';
 import TodoItem from './TodoItem'
 import Footer from './Footer'
