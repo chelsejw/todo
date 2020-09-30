@@ -1,40 +1,43 @@
 {
-  "name": "hooks-todo",
+  "name": "react-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "core-js": "^2.5.7",
-    "raf": "^3.4.1",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-hook-utils": "^1.0.6",
-    "react-router-dom": "^4.4.0-beta.6",
-    "react-scripts": "2.1.5",
-    "todomvc-app-css": "^2.1.2",
-    "use-onclickoutside": "^0.3.0",
-    "use-react-router": "^1.0.3"
-  },
-  "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "jest": "23.6.0",
-    "serve": "^10.0.2"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.20.0",
+    "classnames": "^2.1.5",
+    "director": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
