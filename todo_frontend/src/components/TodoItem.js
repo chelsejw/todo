@@ -52,7 +52,7 @@ const TodoItem = (props) => {
             className="toggle"
             type="checkbox"
             checked={props.todo.completed}
-            onChange={props.onToggle}
+            onChange={()=> props.onToggle(props.todo)}
           />
           <label onDoubleClick={() => handleEdit(props.todo)}>{props.todo.title}</label>
           <button className="destroy" onClick={() => props.onDestroy(props.todo.id)} />

@@ -56,7 +56,6 @@ const TodoApp = () => {
             title: todoContent,
           })
           .then((res) => {
-            console.log(res.data);
             setTodos((prev) => [...prev, res.data]);
           })
           .catch((err) => console.log(`Err... ${err.response.data}`));
@@ -83,7 +82,7 @@ const TodoApp = () => {
 
     const deleteItemApi = (itemId) => {
         axios.delete(`http://localhost:8000/api/items/${itemId}/`)
-        .then(res => console.log(res.data))
+        .then(res => res)
         .catch(err => console.log(err.response.data));
     }
 
@@ -94,7 +93,23 @@ const TodoApp = () => {
     }
 
     const toggle = (todoToToggle) => {
-        // this.props.model.toggle(todoToToggle);
+        const status = todoToToggle.completed;
+        axios.patch(`http://localhost:8000/api/items/${todoToToggle.id}/`, {
+          ...todoToToggle,
+          completed: !status,
+        })
+        .then(res => {
+            setTodos(prev => {
+                return prev.map(item => {
+                    if (item.id===todoToToggle.id) {
+                        return res.data;
+                    }
+                    return item;
+                })
+            })
+        })
+        .catch(err => console.log(err.response));
+
     }
 
     const destroy = (target) => {
@@ -113,7 +128,6 @@ const TodoApp = () => {
     const saveItemApi = (todo, text) => {
         axios.patch(`http://localhost:8000/api/items/${todo.id}/`, {...todo, title: text})
         .then(res => {
-            console.log(res.data)
             setTodos(prev => {
                 return prev.map(item => {
                     if (item.id === todo.id) {
@@ -144,9 +158,9 @@ const TodoApp = () => {
 	let shownTodos = todos.filter(function (todo) {
         switch (nowShowing) {
           case ACTIVE_TODOS:
-            return !todo.done;
+            return !todo.completed;
           case COMPLETED_TODOS:
-            return todo.done;
+            return todo.completed;
           default:
             return true;
         }
