@@ -90,10 +90,21 @@ const TodoApp = () => {
         const checked = event.target.checked;
         console.log(checked)
         setTodos(prev => {
-            return prev.map(item => {
+            const newItems = prev.map(item => {
                 item.completed = checked;
                 return item;
+            });
+            newItems.forEach( item => {
+                axios.patch(
+                  `http://localhost:8000/api/items/${item.id}/`,
+                  item
+                ).then(res => {
+                    return res
+                }).catch(err => {
+                    console.log(err.response)
+                })
             })
+            return newItems;
         })
         
     }
