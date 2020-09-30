@@ -167,8 +167,11 @@ const TodoApp = () => {
     }
 
     const clearCompleted = () => {
-        todos.filter(todo => {
-            return !todo.completed;
+        todos.forEach(todo => {
+            if (todo.completed) deleteItemApi(todo.id);
+        })
+        setTodos(prev => {
+            return prev.filter(todo => !todo.completed)
         })
     }
 
