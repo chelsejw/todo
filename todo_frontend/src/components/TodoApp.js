@@ -138,6 +138,7 @@ const TodoApp = () => {
     }
 
     const edit = (todo) => {
+        console.log(`Edit was passed in ${todo}`)
         setEditing(todo.id);
     }
 
@@ -194,7 +195,7 @@ const TodoApp = () => {
                 onToggle={toggle}
                 onDestroy={destroy}
                 onEdit={edit}
-                editing={editing}
+                editing={editing === todo.id}
                 onSave={save}
                 onCancel={cancel}
             />
