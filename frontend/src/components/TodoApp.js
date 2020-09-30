@@ -7,7 +7,7 @@ import Footer from './Footer'
 // import Utils from '../Utils'
 
 const TodoApp = () => {
-    const API_URL = `http://${process.env.REACT_APP_HOST_IP_ADDRESS}/api/items`
+    const API_URL = `http://${process.env.REACT_APP_HOST_IP_ADDRESS}/api/items/`
     console.log(`API URL is ${API_URL}`);
 
 	const ALL_TODOS = "all";
