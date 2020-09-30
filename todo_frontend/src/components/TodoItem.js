@@ -7,18 +7,18 @@ const TodoItem = (props) => {
 
     const [editText, setEditText] = useState('')
 
-    const handleSubmit = (event) => {
+    const handleSubmit = () => {
         const val = editText.trim();
         if (val) {
-            props.onSave(val);
+            props.onSave(props.todo, val);
             setEditText(val);
         } else {
             props.onDestroy();
         }        
     }
 
-    const handleEdit = () => {
-        props.onEdit();
+    const handleEdit = (todo) => {
+        props.onEdit(todo);
         setEditText(props.todo.title);
     }
 
@@ -33,6 +33,7 @@ const TodoItem = (props) => {
 
     const handleChange = (event) => {
         if (props.editing) setEditText(event.target.value);
+        console.log(`triggerd handle change`)
     }
 
     useEffect(()=> {
@@ -53,7 +54,7 @@ const TodoItem = (props) => {
             checked={props.todo.completed}
             onChange={props.onToggle}
           />
-          <label onDoubleClick={(e) => handleEdit(e)}>{props.todo.title}</label>
+          <label onDoubleClick={() => handleEdit(props.todo)}>{props.todo.title}</label>
           <button className="destroy" onClick={() => props.onDestroy(props.todo.id)} />
         </div>
         <input

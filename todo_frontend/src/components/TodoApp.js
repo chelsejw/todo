@@ -109,8 +109,25 @@ const TodoApp = () => {
         setEditing(todo.id);
     }
 
-    const save = (todoToSave) => {
 
+    const saveItemApi = (todo, text) => {
+        axios.patch(`http://localhost:8000/api/items/${todo.id}/`, {...todo, title: text})
+        .then(res => {
+            console.log(res.data)
+            setTodos(prev => {
+                return prev.map(item => {
+                    if (item.id === todo.id) {
+                        return res.data
+                    };
+                    return item;
+                });
+            });
+        })
+        .catch(err => console.log(err.response))
+    }
+
+    const save = (todoToSave, text) => {
+        saveItemApi(todoToSave, text);
         setEditing(null);
     }
     
