@@ -10,7 +10,6 @@ const TodoApp = () => {
 	const ALL_TODOS = "all";
     const ACTIVE_TODOS = "active";
     const COMPLETED_TODOS = "completed";
-	// const ESCAPE_KEY = 27;
     const ENTER_KEY = 13;
     const [todos, setTodos] = useState([]);
     const [nowShowing, setNowShowing] = useState('all');
@@ -88,7 +87,6 @@ const TodoApp = () => {
 
     const toggleAll = (event) => { // Make all todos complete. If all already complete, make all incomplete.
         const checked = event.target.checked;
-        console.log(checked)
         setTodos(prev => {
             const newItems = prev.map(item => {
                 item.completed = checked;
@@ -138,7 +136,6 @@ const TodoApp = () => {
     }
 
     const edit = (todo) => {
-        console.log(`Edit was passed in ${todo}`)
         setEditing(todo.id);
     }
 

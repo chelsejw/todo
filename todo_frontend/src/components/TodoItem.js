@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classNames from 'classnames'
 
 const TodoItem = (props) => {
@@ -33,12 +33,11 @@ const TodoItem = (props) => {
 
     const handleChange = (event) => {
         if (props.editing) setEditText(event.target.value);
-        console.log(`triggerd handle change`)
     }
 
-    useEffect(()=> {
-        if (props.todo.title) setEditText(props.todo.title);
-    }, []);
+    // useEffect(()=> {
+    //     if (props.todo.title) setEditText(props.todo.title);
+    // }, []); 
   
     return (
       <li
