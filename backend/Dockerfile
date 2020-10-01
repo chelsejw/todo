@@ -1,18 +1,7 @@
-FROM python:3
+FROM python:3.6
 ENV PYTHONUNBUFFERED 1
-
-
-ARG DJANGO_ALLOWED_HOSTS=['127.0.0.1']
-ARG DJANGO_SECRET_KEY=oej=u*!p&l938x4ncjox66ml$i+nw)g*0&$v_f1%%_*zbkzl6d
-ARG DJANGO_CORS_ORIGIN_WHITELIST=['http://localhost:3000']
-
-ENV DJANGO_ALLOWED_HOSTS $DJANGO_ALLOWED_HOSTS
-ENV DJANGO_SECRET_KEY $DJANGO_SECRET_KEY
-ENV DJANGO_CORS_ORIGIN_WHITELIST $DJANGO_CORS_ORIGIN_WHITELIST
-
-RUN mkdir /backend
-WORKDIR /backend
-ADD requirements.txt /backend/
+WORKDIR /code
+VOLUME /code
+ADD . /code
 RUN pip install -r requirements.txt
-ADD . /backend/
-EXPOSE 8000
+CMD ["sh", "entry.sh"]
