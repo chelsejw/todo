@@ -24,5 +24,5 @@ If there are no errors, you should be able to view the app on [127.0.0.1](127.0.
 This app is also deployed on [AWS EC2](http://ec2-13-229-51-142.ap-southeast-1.compute.amazonaws.com/).
 
 ## Notes:
-```
+
 Special thanks to the Deloitte team for this assignment, which gave me the opportunity to learn how to deploy to AWS EC2 and make Docker apps.
