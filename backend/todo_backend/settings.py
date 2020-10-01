@@ -23,11 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 SECRET_KEY = env("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = ['http://127.0.0.1', 'http://127.0.0.1:8000', '127.0.0.1']
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1', 'http://127.0.0.1:8000']
-CORS_ALLOW_ALL_ORIGINS = True
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend',
+                 'ec2-13-229-51-142.ap-southeast-1.compute.amazonaws.com']
+CORS_ORIGIN_WHITELIST = ['localhost', '127.0.0.1', 'backend',
+                         'ec2-13-229-51-142.ap-southeast-1.compute.amazonaws.com']
+
 # Application definition
 
 INSTALLED_APPS = [
