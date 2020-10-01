@@ -9,7 +9,6 @@ axios.defaults.xsrfCookieName = "csrftoken";
 
 const TodoApp = () => {
     const API_URL = `/api/items/`
-    console.log(`API URL is ${API_URL}`);
 
 	const ALL_TODOS = "all";
     const ACTIVE_TODOS = "active";
@@ -244,7 +243,7 @@ const TodoApp = () => {
     return (
       <div className='todoapp'>
         <header className="header">
-          <h1>todos 5</h1>
+          <h1>todos!</h1>
           <input
             className="new-todo"
             placeholder="What needs to be done?"

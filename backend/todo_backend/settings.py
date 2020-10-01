@@ -25,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SECRET_KEY = env("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
-CORS_ORIGIN_WHITELIST = ['localhost', '127.0.0.1', 'backend']
+ALLOWED_HOSTS = ['http://127.0.0.1', 'http://127.0.0.1:8000', '127.0.0.1']
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1', 'http://127.0.0.1:8000']
 CORS_ALLOW_ALL_ORIGINS = True
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -133,4 +132,4 @@ APPEND_SLASH = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
