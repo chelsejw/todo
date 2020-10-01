@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Router } from "director/build/director";
 import axios from 'axios';
-import TodoItem from './TodoItem'
-import Footer from './Footer'
-    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-    axios.defaults.xsrfCookieName = "csrftoken";
+import TodoItem from './components/TodoItem'
+import Footer from './components/Footer'
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken";
 // import Utils from '../Utils'
 
 const TodoApp = () => {
@@ -244,7 +244,7 @@ const TodoApp = () => {
     return (
       <div className='todoapp'>
         <header className="header">
-          <h1>todos 4</h1>
+          <h1>todos 5</h1>
           <input
             className="new-todo"
             placeholder="What needs to be done?"

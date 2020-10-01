@@ -1,0 +1,11 @@
+version: '2'
+services:
+  backend:
+    image: 034847230964.dkr.ecr.ap-southeast-1.amazonaws.com/backend:latest
+
+  nginx:
+    image: 034847230964.dkr.ecr.ap-southeast-1.amazonaws.com/nginx:latest
+    ports:
+      - "80:8000"
+    volumes_from:
+     - backend
