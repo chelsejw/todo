@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  backend:
+    image: chelsejw/backend1
+  nginx:
+    image: chelsejw/nginx
+    ports:
+      - "80:8000"
+    volumes_from:
+     - backend
