@@ -1,8 +1,0 @@
-version: 1
-task_definition:
-  services:
-    backend:
-      mem_limit: 524288000
-    nginx:
-        mem_limit: 134217728
-    
