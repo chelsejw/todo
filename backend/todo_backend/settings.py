@@ -14,7 +14,7 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,9 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'todo'
+    'frontendapp',
+    'todo',
+    'webpack_loader',
 ]
 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'frontend/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -117,6 +126,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+CSRF_COOKIE_NAME = "csrftoken"
 
 APPEND_SLASH = True
 # Static files (CSS, JavaScript, Images)
