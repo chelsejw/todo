@@ -21,7 +21,7 @@ docker-compose up
 
 If there are no errors, you should be able to view the app on [127.0.0.1](127.0.0.1)!
 
-This app is also deployed on [AWS EC2](http://ec2-13-229-51-142.ap-southeast-1.compute.amazonaws.com/).
+This app is also deployed on [AWS EC2](http://ec2-13-229-51-142.ap-southeast-1.compute.amazonaws.com/). _(This has since been taken down since it was costing money..._ 😅)
 
 ## Notes:
 
